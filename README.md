@@ -118,4 +118,3 @@ gcloud run deploy impact-bridge \
 ImpactBridge is designed to be an open framework for social impact coordination. Feel free to fork and adapt it for your local community!
 
 ---
-*Built with ❤️ for Social Impact by [Your Name/Organization]*
