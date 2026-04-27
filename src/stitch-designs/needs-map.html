@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error-container": "#ffdad6",
+                    "primary-container": "#131b2e",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed": "#341100",
+                    "surface": "#f8f9ff",
+                    "surface-container-highest": "#d3e4fe",
+                    "on-primary": "#ffffff",
+                    "inverse-on-surface": "#eaf1ff",
+                    "on-tertiary-fixed": "#002113",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-fixed-variant": "#005236",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface-variant": "#45464d",
+                    "on-tertiary": "#ffffff",
+                    "primary": "#000000",
+                    "background": "#f8f9ff",
+                    "tertiary-fixed": "#6ffbbe",
+                    "on-surface": "#0b1c30",
+                    "surface-container-low": "#eff4ff",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "on-secondary-fixed-variant": "#783200",
+                    "secondary-fixed": "#ffdbca",
+                    "surface-dim": "#cbdbf5",
+                    "surface-variant": "#d3e4fe",
+                    "on-tertiary-container": "#009668",
+                    "primary-fixed-dim": "#bec6e0",
+                    "tertiary-fixed-dim": "#4edea3",
+                    "on-background": "#0b1c30",
+                    "error": "#ba1a1a",
+                    "secondary": "#9d4300",
+                    "on-error": "#ffffff",
+                    "tertiary": "#000000",
+                    "secondary-fixed-dim": "#ffb690",
+                    "inverse-primary": "#bec6e0",
+                    "surface-tint": "#565e74",
+                    "surface-bright": "#f8f9ff",
+                    "tertiary-container": "#002113",
+                    "outline-variant": "#c6c6cd",
+                    "inverse-surface": "#213145",
+                    "on-primary-container": "#7c839b",
+                    "outline": "#76777d",
+                    "on-secondary-container": "#5c2400",
+                    "primary-fixed": "#dae2fd",
+                    "surface-container": "#e5eeff",
+                    "secondary-container": "#fd761a",
+                    "surface-container-high": "#dce9ff",
+                    "on-primary-fixed": "#131b2e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin": "32px",
+                    "gutter": "24px",
+                    "unit": "8px",
+                    "container-max": "1440px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "data-tabular": ["Inter"],
+                    "body-base": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "display-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "data-tabular": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                    "body-base": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .heatmap-gradient {
+            background: linear-gradient(to right, #e5eeff, #fd761a, #ba1a1a);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-base overflow-hidden">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-full flex flex-col z-40 w-64 h-screen border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
+<div class="p-6">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined">diversity_3</span>
+</div>
+<div>
+<h1 class="text-xl font-black text-slate-900 dark:text-white leading-tight">ImpactBridge</h1>
+<p class="text-[10px] font-bold uppercase tracking-widest text-on-primary-container">Community Ops</p>
+</div>
+</div>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-900/50 transition-colors duration-200 font-sans text-sm font-medium tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 bg-slate-100 dark:bg-slate-900 text-slate-950 dark:text-white rounded-md font-semibold font-sans text-sm tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="map" style="font-variation-settings: 'FILL' 1;">map</span>
+<span>Map View</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-900/50 transition-colors duration-200 font-sans text-sm font-medium tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="diversity_3">diversity_3</span>
+<span>Volunteer Matching</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-900/50 transition-colors duration-200 font-sans text-sm font-medium tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span>Tasks</span>
+</a>
+</nav>
+</div>
+<div class="mt-auto p-6 border-t border-slate-100 dark:border-slate-800">
+<button class="w-full bg-secondary-container text-white py-3 rounded-xl font-bold active:scale-[0.98] transition-transform flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg">add</span>
+                New Request
+            </button>
+</div>
+</aside>
+<!-- TopAppBar Shell -->
+<header class="ml-64 flex justify-between items-center px-8 h-16 w-[calc(100%-16rem)] z-30 fixed top-0 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-6">
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 transition-opacity font-sans text-sm font-medium" href="#">Global Trends</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 transition-opacity font-sans text-sm font-medium" href="#">Impact Reports</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative">
+<input class="bg-surface-container-low border-none rounded-full px-4 py-1.5 text-sm w-64 focus:ring-2 focus:ring-secondary-container transition-all" placeholder="Search areas or needs..." type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-1.5 text-slate-400 text-lg">search</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-slate-500 hover:text-slate-900 cursor-pointer transition-all">notifications</button>
+<button class="material-symbols-outlined text-slate-500 hover:text-slate-900 cursor-pointer transition-all">settings</button>
+<img alt="Administrator Profile" class="w-8 h-8 rounded-full border border-slate-200 object-cover" data-alt="Professional headshot of a female administrator in a modern office setting, clean lighting and business attire" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTJjF3-KpRWY3gMgr8_HB_XN4pwqEAQuYlFJrB4rKzRe40yU5s1hRnADX5GVs2HbMlWpk5xEDVnG99d02zfKweb-CZDlfzjvfc61gT7x-kGdJgPZy2594TkYvmNIJIfnvEl774-17qgDsQL4R14Vu3idL13OY7vNP444HY0XZ5wxNYoys6uUcUH2lFduzJiGzEqnlhXgQ7y_ODTXxpL0zRTpgX3e2MNwbYdDM1HPeRFGHB2CHsI_crTRHmZMZOC1rmmpWoX3Jquls"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 mt-16 h-[calc(100vh-4rem)] flex overflow-hidden">
+<!-- Interactive Map Section -->
+<section class="flex-1 relative bg-slate-200 overflow-hidden">
+<div class="absolute inset-0 bg-slate-100 flex items-center justify-center">
+<img alt="Community Needs Map" class="w-full h-full object-cover grayscale opacity-80" data-alt="High-contrast grayscale topographic map of a metropolitan city with vibrant glowing orange and red heatmap overlays indicating high-density areas" data-location="New York City" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOfipg-vPVVCMlwEF69qOuJjyLQGPEq4ThZ6kf7kBq9vGJSvhttR2-auST3P9y9icS7WwPngfawQlBXzVLf89NldZRgoi46z1FmSxpVquJ2nK2x48qyH9LoyGOIUII8Jp-RSHbiXfiUGbueoDBVmlOdDwSZvbtUamI7QCpi1zL6FVC29VmJ-T1IjMHGkiTxje7yda6PwqZ73VXv6iEr-nm5FC_Y0obo0odHLCVy1mTbLd6aPfHZZO_zgaVW-yVkdVDUkTBsT5ynTg"/>
+<!-- Map UI Overlays -->
+<div class="absolute top-6 left-6 flex flex-col gap-3">
+<div class="bg-white/90 backdrop-blur-sm p-4 rounded-xl shadow-lg border border-slate-200 w-48">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-3">NEED DENSITY</p>
+<div class="h-2 w-full heatmap-gradient rounded-full mb-2"></div>
+<div class="flex justify-between text-[10px] font-bold text-slate-500">
+<span>LOW</span>
+<span>MEDIUM</span>
+<span>URGENT</span>
+</div>
+</div>
+</div>
+<!-- Floating Tooltip / Marker Detail -->
+<div class="absolute top-[40%] left-[55%] animate-pulse">
+<div class="w-8 h-8 bg-error rounded-full flex items-center justify-center border-4 border-white shadow-xl">
+<span class="material-symbols-outlined text-white text-xs" style="font-variation-settings: 'FILL' 1;">priority_high</span>
+</div>
+<div class="absolute top-10 -left-20 bg-white p-3 rounded-xl shadow-2xl border border-slate-200 w-48">
+<p class="text-label-sm font-label-sm text-error mb-1">HIGH URGENCY</p>
+<h4 class="font-headline-md text-[14px] leading-tight mb-1">Food Distribution Center</h4>
+<p class="text-[12px] text-slate-500 mb-2">Inventory below 15%. 200+ households pending.</p>
+<div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+<div class="bg-error h-full w-[85%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Map Controls -->
+<div class="absolute bottom-6 right-6 flex flex-col gap-2">
+<button class="bg-white w-10 h-10 rounded-lg shadow-md flex items-center justify-center text-slate-600 hover:text-slate-900 transition-colors">
+<span class="material-symbols-outlined">add</span>
+</button>
+<button class="bg-white w-10 h-10 rounded-lg shadow-md flex items-center justify-center text-slate-600 hover:text-slate-900 transition-colors">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<button class="bg-white w-10 h-10 rounded-lg shadow-md flex items-center justify-center text-slate-600 hover:text-slate-900 transition-colors">
+<span class="material-symbols-outlined">my_location</span>
+</button>
+</div>
+</section>
+<!-- Right Sidebar: Filters & Details -->
+<aside class="w-[380px] bg-white border-l border-slate-200 flex flex-col z-10 shadow-[-10px_0_30px_rgba(0,0,0,0.02)]">
+<div class="p-6 border-b border-slate-100">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">Urgent Needs</h2>
+<p class="text-label-sm font-label-sm text-on-surface-variant">FILTERING 24 ACTIVE CLUSTERS</p>
+</div>
+<div class="flex-1 overflow-y-auto p-6 space-y-6">
+<!-- Filter Chips -->
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1.5 bg-secondary-container text-white rounded-full text-label-sm font-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">bolt</span> Urgent
+                    </span>
+<span class="px-3 py-1.5 bg-surface-container text-on-surface-variant rounded-full text-label-sm font-label-sm hover:bg-surface-container-highest transition-colors cursor-pointer">Food Security</span>
+<span class="px-3 py-1.5 bg-surface-container text-on-surface-variant rounded-full text-label-sm font-label-sm hover:bg-surface-container-highest transition-colors cursor-pointer">Elderly Care</span>
+<span class="px-3 py-1.5 bg-surface-container text-on-surface-variant rounded-full text-label-sm font-label-sm hover:bg-surface-container-highest transition-colors cursor-pointer">Education</span>
+</div>
+<!-- Cluster List -->
+<div class="space-y-4">
+<!-- Urgent Card -->
+<div class="p-4 border-l-4 border-error bg-surface-container-low rounded-lg group hover:bg-white hover:shadow-lg transition-all cursor-pointer">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-bold text-error uppercase tracking-wider">Critical • Harlem North</span>
+<span class="text-[10px] text-slate-400">2m ago</span>
+</div>
+<h3 class="font-headline-md text-[16px] mb-1">Winter Shelter Capacity</h3>
+<p class="text-sm text-slate-600 mb-3">Facility #04 reports 98% occupancy with incoming severe weather alert.</p>
+<div class="flex items-center gap-4">
+<div class="flex -space-x-2">
+<img alt="Volunteer 1" class="w-6 h-6 rounded-full border-2 border-white" data-alt="Portrait of a smiling young male volunteer in a bright orange safety vest" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5Kbmfg0VeXJbikGXupUytjIK48tJzlr6nSVIhJn_RlNGTTK829CJ2-40z_GXHp_P0a2XKVKURHSfRHF4PGyFlcy3TKxQ4ludF7ZMNN_h7Ea1Uij699wcE4Oxj97dbmSZGwQlT0GYdko9sWl_NTYxSmy1VVL5dbPrXRhJ3vNUdz4a3jxwxECG5cjSG8TmChWRw3X8CDeuluR5L32OYmRVr3Nvd3reUefegYTN6DOtrkD3x_P85lx25_HeABnW1Hbj50Q-uOvuMsWo"/>
+<img alt="Volunteer 2" class="w-6 h-6 rounded-full border-2 border-white" data-alt="Professional woman in business casual attire with a warm, empathetic expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5ISk1sgFxa561gn6-RJyyN6PEj1ESYa3UprAvCsiux6yvUaThohUk3JBfYnbXiHfdfZrNVJnzk5L-kGxMvrbaYpV5kWFIWQmzIz2IDiW_v3mji9y_54-8Lre-_vjtkwnRmJnPYPu0V844gTH8c5JoT5i2O4khzY2iCSwRnEb0QqqrFtvvo5XBF3O3uS0OjL6t3vt10GydxxBFCVKtN6fr6LnUbD5UgXlIL9w0meJyit3NMAyVARQYd2EM7tLlLDVlQcXaQPt1x3o"/>
+</div>
+<span class="text-[12px] font-medium text-slate-500">12 responders near</span>
+<button class="ml-auto text-secondary-container hover:underline text-xs font-bold">DEPLOY</button>
+</div>
+</div>
+<!-- Medium Card -->
+<div class="p-4 border-l-4 border-secondary-container bg-surface-container-low rounded-lg group hover:bg-white hover:shadow-lg transition-all cursor-pointer">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-bold text-secondary-container uppercase tracking-wider">High • Brooklyn West</span>
+<span class="text-[10px] text-slate-400">14m ago</span>
+</div>
+<h3 class="font-headline-md text-[16px] mb-1">Digital Literacy Workshop</h3>
+<p class="text-sm text-slate-600 mb-3">Waitlist for community tech sessions exceeded 40 residents today.</p>
+<div class="flex items-center gap-4">
+<div class="flex -space-x-2">
+<img alt="Volunteer 3" class="w-6 h-6 rounded-full border-2 border-white" data-alt="Close-up of a middle-aged woman with glasses and a kind smile, looking helpful" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmZqy3lkFW49M1Q8AXH3Figc5Dhv2x9-DxbMdRoQxkH2fKasD07H3qSDKs3j6-0tBOiF6FBXRGfpZtjbmq6rMG3K2R5MC5iMBSy5QNw6PutXvsIHhKNNQ7IHg3nbEkNguWUGxaGn0T4U8wnfrHxmqOL6ZZGYDAt1oCln6IVckF-01iQWzZP1DCeXntUfrTMmNJCRRWXaxCa4cCibt1rFZT0t7Kc4ymjVU2qsKqqsPUCzvhhr_JdkaIa0X5a9EyKknwRuYLXJyNUZ0"/>
+</div>
+<span class="text-[12px] font-medium text-slate-500">3 mentors active</span>
+<button class="ml-auto text-secondary-container hover:underline text-xs font-bold">SCHEDULE</button>
+</div>
+</div>
+<!-- Low Card -->
+<div class="p-4 border-l-4 border-surface-container-highest bg-surface-container-low rounded-lg group hover:bg-white hover:shadow-lg transition-all cursor-pointer">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Stable • Queens Blvd</span>
+<span class="text-[10px] text-slate-400">1h ago</span>
+</div>
+<h3 class="font-headline-md text-[16px] mb-1">Park Cleanup Initiative</h3>
+<p class="text-sm text-slate-600 mb-3">Routine maintenance and debris removal scheduled for weekend.</p>
+<div class="flex items-center gap-4">
+<div class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full bg-slate-200 flex items-center justify-center border-2 border-white text-[8px] font-bold">+8</div>
+</div>
+<span class="text-[12px] font-medium text-slate-500">Awaiting tools</span>
+<button class="ml-auto text-slate-400 hover:text-slate-600 text-xs font-bold">VIEW</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Analysis -->
+<div class="p-6 bg-slate-50 border-t border-slate-200">
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-sm text-label-sm text-slate-500">AGGREGATE IMPACT SCORE</span>
+<span class="text-secondary-container font-bold">78.4</span>
+</div>
+<div class="flex items-end gap-1 h-12 mb-4">
+<div class="flex-1 bg-slate-200 h-[40%] rounded-t-sm"></div>
+<div class="flex-1 bg-slate-200 h-[60%] rounded-t-sm"></div>
+<div class="flex-1 bg-secondary-container h-[85%] rounded-t-sm"></div>
+<div class="flex-1 bg-slate-200 h-[55%] rounded-t-sm"></div>
+<div class="flex-1 bg-error h-[95%] rounded-t-sm"></div>
+<div class="flex-1 bg-slate-200 h-[70%] rounded-t-sm"></div>
+<div class="flex-1 bg-slate-200 h-[50%] rounded-t-sm"></div>
+</div>
+<button class="w-full py-2 bg-white border border-slate-200 rounded-lg text-sm font-bold text-slate-700 hover:bg-slate-100 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">download</span>
+                    Export Area Report
+                </button>
+</div>
+</aside>
+</main>
+</body></html>

@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Volunteer Matching - ImpactBridge</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#ffdad6",
+                        "primary-container": "#131b2e",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed": "#341100",
+                        "surface": "#f8f9ff",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-tertiary-fixed": "#002113",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#45464d",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#000000",
+                        "background": "#f8f9ff",
+                        "tertiary-fixed": "#6ffbbe",
+                        "on-background": "#0b1c30",
+                        "surface-container-low": "#eff4ff",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "on-secondary-fixed-variant": "#783200",
+                        "secondary-fixed": "#ffdbca",
+                        "surface-dim": "#cbdbf5",
+                        "surface-variant": "#d3e4fe",
+                        "on-tertiary-container": "#009668",
+                        "primary-fixed-dim": "#bec6e0",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "on-background": "#0b1c30",
+                        "error": "#ba1a1a",
+                        "secondary": "#9d4300",
+                        "on-error": "#ffffff",
+                        "tertiary": "#000000",
+                        "secondary-fixed-dim": "#ffb690",
+                        "inverse-primary": "#bec6e0",
+                        "surface-tint": "#565e74",
+                        "surface-bright": "#f8f9ff",
+                        "tertiary-container": "#002113",
+                        "outline-variant": "#c6c6cd",
+                        "inverse-surface": "#213145",
+                        "on-primary-container": "#7c839b",
+                        "outline": "#76777d",
+                        "on-secondary-container": "#5c2400",
+                        "primary-fixed": "#dae2fd",
+                        "surface-container": "#e5eeff",
+                        "secondary-container": "#fd761a",
+                        "surface-container-high": "#dce9ff",
+                        "on-primary-fixed": "#131b2e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin": "32px",
+                        "gutter": "24px",
+                        "unit": "8px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "data-tabular": ["Inter"],
+                        "body-base": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "data-tabular": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "body-base": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { background-color: #F8FAFC; }
+    </style>
+</head>
+<body class="font-body-base text-on-background">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full flex flex-col z-40 w-64 border-r border-slate-200 bg-white dark:bg-slate-950">
+<div class="p-6">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-8 h-8 bg-primary-container rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-lg">link</span>
+</div>
+<div>
+<h1 class="text-xl font-black text-slate-900 dark:text-white leading-none">ImpactBridge</h1>
+<p class="text-[10px] font-bold text-on-primary-container uppercase tracking-widest">Community Ops</p>
+</div>
+</div>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-900/50 transition-colors duration-200 rounded-md font-sans text-sm font-medium tracking-tight active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                    Dashboard
+                </a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-900/50 transition-colors duration-200 rounded-md font-sans text-sm font-medium tracking-tight active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+                    Map View
+                </a>
+<a class="flex items-center gap-3 px-4 py-2 bg-slate-100 dark:bg-slate-900 text-slate-950 dark:text-white rounded-md font-semibold font-sans text-sm tracking-tight active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="diversity_3" style="font-variation-settings: 'FILL' 1;">diversity_3</span>
+                    Volunteer Matching
+                </a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-900/50 transition-colors duration-200 rounded-md font-sans text-sm font-medium tracking-tight active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+                    Tasks
+                </a>
+</nav>
+</div>
+<div class="mt-auto p-6 border-t border-slate-100">
+<button class="w-full py-3 bg-secondary-container text-white font-bold rounded-lg shadow-sm hover:brightness-110 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">add_circle</span>
+                New Request
+            </button>
+</div>
+</aside>
+<!-- TopAppBar -->
+<header class="ml-64 flex justify-between items-center px-8 h-16 w-[calc(100%-16rem)] z-30 fixed top-0 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none">
+<div class="flex items-center gap-8">
+<div class="flex gap-6">
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 font-sans text-sm font-medium" href="#">Global Trends</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 font-sans text-sm font-medium" href="#">Impact Reports</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-slate-400 text-sm">search</span>
+<input class="pl-10 pr-4 py-1.5 bg-slate-50 border border-slate-200 rounded-full text-xs focus:ring-1 focus:ring-secondary-container focus:outline-none w-64" placeholder="Search matches..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-slate-500 cursor-pointer hover:text-slate-900" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-slate-500 cursor-pointer hover:text-slate-900" data-icon="settings">settings</span>
+<img alt="Administrator Profile" class="w-8 h-8 rounded-full border border-slate-200" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHApJVLwr8U_03KRn5fbYEgGP4cjlPJtjoHv1gq4_UlVznPAdjEZ5b_2_dK9Wo2TEhtOhlNsQR8uMg3atxeS-UBjnhL4BocnAnMRydzkwjS_F5C56QbR9aeerBxuI2CyuJEnWt1mkdw2vBDUXcRyj-Ra16kRDoMkis0byaFIhKvGihQl-LMRaXjr1-VrPaM78qJJECnf2jduMhm4qbVk0tyC2Eohx77fyHYx2BxxsDWJvPCVEkC80ex77QspU41A9n3w8zraC_1-c"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-24 p-8 min-h-screen">
+<!-- Header Section -->
+<div class="mb-8 flex justify-between items-end">
+<div>
+<h2 class="font-display-lg text-display-lg text-on-background">Volunteer Matching</h2>
+<p class="text-on-primary-container mt-2 max-w-2xl">Deploying intelligence to connect the right hands with the right needs. Currently analyzing 124 active volunteers against 18 urgent community tasks.</p>
+</div>
+<div class="flex gap-3">
+<div class="flex -space-x-2">
+<img class="w-10 h-10 rounded-full border-2 border-white" data-alt="Close up portrait of a smiling volunteer woman in professional attire with soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzn_z9qXUlkxM4YYXceJvh0Wkn98CeYbT02ItpELakrZPetPhml9vukaI74tqf-fNn0_03slkQzLWfkpagM9jVFh09UUs5PiAcXSQ2kaTpEFzu3-b0oGPKD4FUi26N8qenhsmoHKzADG0SfuXxiOIn0pnwOaZAgztuUDP_D99qdrzWvIHUAU0_jQzrx6Os2Nw6ULPQtE7rxSsNuTjHNc5CxJDXxKXenZ1r46DZQ9ExyN45PaT7QfO90cDCoITAFDKaJQX-n4BlYjE"/>
+<img class="w-10 h-10 rounded-full border-2 border-white" data-alt="Close up portrait of a young man volunteer looking confident in urban outdoor setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUqp4HfNbe0R8rPwoXOa2iDUliHh_BTJ_vqf1ds-ziFHq_jFLfvbiQmO-QYsZvfuTXxHOvJl0AInwXfc4yZNJfEXWCkIAKZeEPVuQPfEjGtww4iXpi63yrM0l_pa6w2uwtlemj0b_NNGm1kSjkbQPhiptmCqN2mO3VnZzql35hKIDLIk6hIxk9U5u77-T_z3m0Dn6tTtQIn7hKtJ_WDklDydgLrPYZbFfvHAz_6dQ2AHxV4GCogX_Z0Q7PMaGle5uXy20m6u6IXbE"/>
+<img class="w-10 h-10 rounded-full border-2 border-white" data-alt="Portrait of an older woman with glasses smiling warmly towards the camera in a modern office" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAl-LSVMwJghy6qP_ZTAhkK6Xk_QTGZAAKu927OsCVruu85v9NazAvcSohLhQmnEnKYE3ux6BT0-RcefMba58S6BbxPPzDm-Zm_k7KhEVObDsEoYx0wgmsJThG2RkMLqjo1g9WNayOxv3PqREiToRWZdR0O8oF4unsFctGHNHRCks8VS58nH-_HQW3r8YjNydgzW4am9-4ZJnMgo6OOSVRPs3g99be8RRPJP7azT1SBDEcth4DBzj-266Gm-oIMA6ySeiKvzRDm-cA"/>
+<div class="w-10 h-10 rounded-full border-2 border-white bg-slate-100 flex items-center justify-center text-xs font-bold text-slate-600">+12</div>
+</div>
+</div>
+</div>
+<!-- Filters/Stats Bento -->
+<div class="grid grid-cols-12 gap-gutter mb-gutter">
+<div class="col-span-8 bg-white border border-slate-200 p-6 rounded-xl">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-md text-headline-md">High-Priority Matches</h3>
+<div class="flex gap-2">
+<span class="bg-secondary-container/10 text-secondary-container px-3 py-1 rounded-full text-label-sm font-label-sm">3 Urgent Needs</span>
+<span class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full text-label-sm font-label-sm">8 Optimal Skills</span>
+</div>
+</div>
+<div class="space-y-4">
+<!-- Match Item 1 -->
+<div class="flex items-center gap-6 p-4 border border-slate-100 rounded-lg hover:border-secondary-container/30 hover:shadow-lg transition-all bg-white group">
+<div class="relative">
+<img class="w-16 h-16 rounded-xl object-cover" data-alt="Professional headshot of a person with friendly expression, neutral grey background, corporate style photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3J49zOQEhhuQLf2XdDMdrNpdYNMXpg4e00vf6LCOBA0D03F0Uj4Pz1e7khO_2ee-FAB5LG2KYRz6ebpprkv5dMa5qhkKBoyme5x1lsebvoyrxkpFTe_7zq6PsBh0_JxG1SyMvcAAPoyOrL6t9pVUyEZTSOoYPA_9OmGsKHMLS2yOIxxxHqKCi6ViuJUtLGzP3Ejv4UNzOvjZzVHXX-_4MUaJ0Tl58hvp6taOAHHYUoZMt66bIQ2tDTEa1flpLBJfTe7HxmXl5b8M"/>
+<div class="absolute -top-2 -right-2 bg-secondary-container text-white text-[10px] font-bold px-2 py-0.5 rounded-full">TOP MATCH</div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-headline-md text-body-base font-bold">Julianne Smith</h4>
+<div class="text-right">
+<span class="text-display-lg text-headline-md text-secondary-container">98%</span>
+<p class="text-[10px] uppercase font-bold text-slate-400">Match Score</p>
+</div>
+</div>
+<div class="flex gap-4 items-center">
+<div class="flex items-center gap-1 text-label-sm text-slate-500">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                                    0.8 miles away
+                                </div>
+<div class="flex items-center gap-1 text-label-sm text-slate-500">
+<span class="material-symbols-outlined text-sm">psychology</span>
+                                    Data Analysis, Logistics
+                                </div>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<button class="px-6 py-2 bg-primary-container text-white text-label-sm font-label-sm rounded hover:bg-slate-800 transition-colors">Assign Task</button>
+<button class="px-6 py-2 border border-slate-200 text-slate-600 text-label-sm font-label-sm rounded hover:bg-slate-50">View Profile</button>
+</div>
+</div>
+<!-- Match Item 2 -->
+<div class="flex items-center gap-6 p-4 border border-slate-100 rounded-lg hover:border-secondary-container/30 hover:shadow-lg transition-all bg-white group">
+<div class="relative">
+<img class="w-16 h-16 rounded-xl object-cover" data-alt="Portrait of a young male professional in a blue shirt, blurred office background, soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzdw-xvo6bklUAlXNr0Tc7n9-YugBdkVCgWPuc3dtTHt-L46Tvo1ALSHcctWV9V0VAKkeLeXHriUQs49AijTd2ANGuWagJYOGHg34mxY8tIefayEtyWJHvWg2Samx6bxst-R2fdURCbxkbcyRlMebpZrnt7T45czYJF0qVagmqfDFj0xuLuMpQkvXvn61C3EJbqh-qB863vHZhbfURmsWI7xmA-2cQwTG0ooowA2DSYLgKRjXGdAc1oFJyifRxNizoU_I3V773sjc"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-headline-md text-body-base font-bold">Marcus Rivera</h4>
+<div class="text-right">
+<span class="text-display-lg text-headline-md text-secondary-container">84%</span>
+<p class="text-[10px] uppercase font-bold text-slate-400">Match Score</p>
+</div>
+</div>
+<div class="flex gap-4 items-center">
+<div class="flex items-center gap-1 text-label-sm text-slate-500">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                                    2.4 miles away
+                                </div>
+<div class="flex items-center gap-1 text-label-sm text-slate-500">
+<span class="material-symbols-outlined text-sm">psychology</span>
+                                    Crisis MGMT, First Aid
+                                </div>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<button class="px-6 py-2 bg-primary-container text-white text-label-sm font-label-sm rounded hover:bg-slate-800 transition-colors">Assign Task</button>
+<button class="px-6 py-2 border border-slate-200 text-slate-600 text-label-sm font-label-sm rounded hover:bg-slate-50">View Profile</button>
+</div>
+</div>
+</div>
+</div>
+<div class="col-span-4 bg-primary-container text-white p-8 rounded-xl relative overflow-hidden">
+<div class="relative z-10">
+<h3 class="font-headline-md text-headline-md mb-4 text-white">Impact Scorecard</h3>
+<div class="mb-8">
+<span class="text-display-lg font-display-lg text-secondary-container">4,820</span>
+<p class="text-on-primary-container text-label-sm uppercase tracking-widest">Total Community Hours</p>
+</div>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between text-label-sm mb-2">
+<span>Weekly Target Progress</span>
+<span class="text-on-primary-container">82%</span>
+</div>
+<div class="h-2 bg-white/10 rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container w-[82%]"></div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-white/5 p-4 rounded-lg">
+<span class="text-headline-md font-headline-md block">12</span>
+<span class="text-[10px] uppercase text-on-primary-container">New Matches</span>
+</div>
+<div class="bg-white/5 p-4 rounded-lg">
+<span class="text-headline-md font-headline-md block">94%</span>
+<span class="text-[10px] uppercase text-on-primary-container">SLA Success</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Abstract BG Pattern -->
+<div class="absolute -bottom-10 -right-10 w-48 h-48 bg-secondary-container/10 rounded-full blur-3xl"></div>
+</div>
+</div>
+<!-- Secondary Grid: Tasks & Clusters -->
+<div class="grid grid-cols-12 gap-gutter">
+<div class="col-span-4 bg-white border border-slate-200 p-6 rounded-xl">
+<h3 class="font-headline-md text-headline-md mb-6">Pending Tasks</h3>
+<div class="space-y-4">
+<div class="p-4 bg-surface border-l-4 border-secondary-container rounded-r-lg">
+<div class="flex justify-between items-start mb-2">
+<span class="text-label-sm font-bold text-secondary-container uppercase">Urgent</span>
+<span class="text-slate-400 text-[10px]">2h ago</span>
+</div>
+<h5 class="font-bold text-slate-900 mb-1">Crisis Response Center Support</h5>
+<p class="text-xs text-slate-500 mb-3">Requires 4 volunteers with trauma-informed care background.</p>
+<div class="flex items-center gap-2">
+<div class="flex -space-x-1">
+<div class="w-6 h-6 rounded-full bg-slate-200 border border-white"></div>
+<div class="w-6 h-6 rounded-full bg-slate-200 border border-white"></div>
+</div>
+<span class="text-[10px] text-slate-400">2/4 filled</span>
+</div>
+</div>
+<div class="p-4 bg-surface border-l-4 border-tertiary-container rounded-r-lg">
+<div class="flex justify-between items-start mb-2">
+<span class="text-label-sm font-bold text-on-tertiary-container uppercase">Scheduled</span>
+<span class="text-slate-400 text-[10px]">6h ago</span>
+</div>
+<h5 class="font-bold text-slate-900 mb-1">Community Garden Expansion</h5>
+<p class="text-xs text-slate-500 mb-3">Manual labor and project management needed for site B.</p>
+<div class="flex items-center gap-2">
+<span class="text-[10px] text-slate-400">0/2 filled</span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-span-8 grid grid-cols-2 gap-gutter">
+<!-- Smart Match Analysis -->
+<div class="bg-white border border-slate-200 p-6 rounded-xl">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-secondary-container">query_stats</span>
+<h3 class="font-headline-md text-headline-md">Skill Distribution</h3>
+</div>
+<div class="flex items-end justify-between h-40 px-4">
+<div class="w-8 bg-primary-container/20 rounded-t-lg relative group">
+<div class="absolute bottom-0 left-0 w-full h-[60%] bg-primary-container rounded-t-lg"></div>
+<p class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-slate-400 uppercase">Admin</p>
+</div>
+<div class="w-8 bg-primary-container/20 rounded-t-lg relative group">
+<div class="absolute bottom-0 left-0 w-full h-[85%] bg-primary-container rounded-t-lg"></div>
+<p class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-slate-400 uppercase">Crisis</p>
+</div>
+<div class="w-8 bg-primary-container/20 rounded-t-lg relative group">
+<div class="absolute bottom-0 left-0 w-full h-[40%] bg-primary-container rounded-t-lg"></div>
+<p class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-slate-400 uppercase">Legal</p>
+</div>
+<div class="w-8 bg-primary-container/20 rounded-t-lg relative group">
+<div class="absolute bottom-0 left-0 w-full h-[95%] bg-primary-container rounded-t-lg"></div>
+<p class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-slate-400 uppercase">Logist</p>
+</div>
+</div>
+</div>
+<!-- Active Map Context -->
+<div class="relative bg-slate-200 rounded-xl overflow-hidden group">
+<div class="absolute inset-0 bg-cover bg-center" data-location="Chicago" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBmoZHiWjt2jLSthuMfdaxsEBwXBficggpdHedV_4IkDZnwWK4Hkfhbhl7FP66wGAg9WKHCYmgBWEtewve2GKpH894uEDVNc_PUAC3raLs29Y-rOgY7itS3OjiT_9IK4tkVX8tDXtSuglH8GWgO5Pty5UK9J6_EAMV1hc42JCllVBpwQ7sPXF9zaCyUVQOd3UL3CFayhHo13a1MV-BNI60eDaxS3ZzPmJGh5GOyalxu5SHr_63WXiWGTm86xa_SUPvnuJKOYV8yMro')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-4 left-4 right-4">
+<div class="flex items-center gap-2 text-white mb-1">
+<span class="material-symbols-outlined text-sm">my_location</span>
+<span class="text-label-sm font-bold">Proximity Matching Active</span>
+</div>
+<p class="text-[10px] text-white/80">3 volunteers within 1 mile of Crisis Response Center</p>
+</div>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full flex items-center gap-2 shadow-xl">
+<div class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></div>
+<span class="text-[10px] font-bold text-slate-900">Live Traffic Aware</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Match Activity -->
+<div class="mt-gutter bg-white border border-slate-200 rounded-xl overflow-hidden">
+<div class="p-6 border-b border-slate-100 flex justify-between items-center">
+<h3 class="font-headline-md text-headline-md">Recent Assignments</h3>
+<button class="text-label-sm font-bold text-secondary-container hover:underline">View History</button>
+</div>
+<table class="w-full text-left font-data-tabular text-data-tabular">
+<thead class="bg-surface text-slate-500 uppercase text-[10px] font-bold">
+<tr>
+<th class="px-6 py-4">Volunteer</th>
+<th class="px-6 py-4">Task Assigned</th>
+<th class="px-6 py-4">Skill Match</th>
+<th class="px-6 py-4">Status</th>
+<th class="px-6 py-4 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100">
+<tr class="hover:bg-slate-50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full" data-alt="Portrait of a young professional person with short dark hair and a neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5AYZQejWT6KUlfVeuLXJG7i2POjL5gPPD1rLb6JY3dYQejqyHWNuogoj5IGAjaMHHdGm17GvruA84pgadvOaqSJdOvQ4nN6L4998dzdfV_VgPd4y8sxj5aDYbfFCSgJ53ZjDcQHLIgItf_1A_13M2yQQA1AuRz2S-cLrCuNkjPv83Bi4DZXkxpo3uas3yLyTbF-Gn7Pb1euv0kPURmOyYI_EVUwBK1HaPkjE1O-pWOJVZ02V9iDP2FfStxkyz-RQrwSNCemFo7eU"/>
+<div>
+<p class="font-bold text-slate-900">Alex Moore</p>
+<p class="text-[10px] text-slate-400">Logistics Expert</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-slate-600">Inventory Management - Depot 4</td>
+<td class="px-6 py-4">
+<div class="flex gap-1">
+<span class="bg-slate-100 px-2 py-0.5 rounded text-[10px]">Supply Chain</span>
+<span class="bg-slate-100 px-2 py-0.5 rounded text-[10px]">Heavy Lift</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="flex items-center gap-1 text-tertiary-container">
+<span class="w-1.5 h-1.5 rounded-full bg-on-tertiary-container"></span>
+                                Completed
+                            </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="material-symbols-outlined text-slate-400 hover:text-slate-900">more_horiz</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full" data-alt="Close up face of a woman with curly hair smiling in bright daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWpwfCnIhhGN-cBMr1VFz_wyqmhfD4BJREyZ5M6EcIKfrPzsLhS4Nk3OsF_10lQ0WTaq5PKwUAS7NkCBK79c3OAaEVzuwKe4vKWx6RU5MSJwxBy0Lp4zW_C-dZTmGPa1AgC-orugtzIgE7JabEbVozb4ddURpiPEJqQwUTdSxo5HyPFzr207eti3qeyz6eO6kivPsKYiX1COUzdaoHWSZEQdYwLj79jMX3-HkrkOxuoen-sq8N0opc6t1-m4QqnbJ1135A-VyA3mA"/>
+<div>
+<p class="font-bold text-slate-900">Sarah Kahan</p>
+<p class="text-[10px] text-slate-400">Social Worker</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-slate-600">Youth Mentorship Program</td>
+<td class="px-6 py-4">
+<div class="flex gap-1">
+<span class="bg-slate-100 px-2 py-0.5 rounded text-[10px]">Education</span>
+<span class="bg-slate-100 px-2 py-0.5 rounded text-[10px]">Counseling</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="flex items-center gap-1 text-secondary-container">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>
+                                In Progress
+                            </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="material-symbols-outlined text-slate-400 hover:text-slate-900">more_horiz</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</main>
+</body></html>

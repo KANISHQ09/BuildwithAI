@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error-container": "#ffdad6",
+                    "primary-container": "#131b2e",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed": "#341100",
+                    "surface": "#f8f9ff",
+                    "surface-container-highest": "#d3e4fe",
+                    "on-primary": "#ffffff",
+                    "inverse-on-surface": "#eaf1ff",
+                    "on-tertiary-fixed": "#002113",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-fixed-variant": "#005236",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface-variant": "#45464d",
+                    "on-tertiary": "#ffffff",
+                    "primary": "#000000",
+                    "background": "#f8f9ff",
+                    "tertiary-fixed": "#6ffbbe",
+                    "on-surface": "#0b1c30",
+                    "surface-container-low": "#eff4ff",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "on-secondary-fixed-variant": "#783200",
+                    "secondary-fixed": "#ffdbca",
+                    "surface-dim": "#cbdbf5",
+                    "surface-variant": "#d3e4fe",
+                    "on-tertiary-container": "#009668",
+                    "primary-fixed-dim": "#bec6e0",
+                    "tertiary-fixed-dim": "#4edea3",
+                    "on-background": "#0b1c30",
+                    "error": "#ba1a1a",
+                    "secondary": "#9d4300",
+                    "on-error": "#ffffff",
+                    "tertiary": "#000000",
+                    "secondary-fixed-dim": "#ffb690",
+                    "inverse-primary": "#bec6e0",
+                    "surface-tint": "#565e74",
+                    "surface-bright": "#f8f9ff",
+                    "tertiary-container": "#002113",
+                    "outline-variant": "#c6c6cd",
+                    "inverse-surface": "#213145",
+                    "on-primary-container": "#7c839b",
+                    "outline": "#76777d",
+                    "on-secondary-container": "#5c2400",
+                    "primary-fixed": "#dae2fd",
+                    "surface-container": "#e5eeff",
+                    "secondary-container": "#fd761a",
+                    "surface-container-high": "#dce9ff",
+                    "on-primary-fixed": "#131b2e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin": "32px",
+                    "gutter": "24px",
+                    "unit": "8px",
+                    "container-max": "1440px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "data-tabular": ["Inter"],
+                    "body-base": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "display-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "data-tabular": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                    "body-base": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .kanban-column::-webkit-scrollbar { width: 4px; }
+        .kanban-column::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-background font-body-base text-on-background min-h-screen">
+<!-- SideNavBar (Shared Component) -->
+<aside class="fixed left-0 top-0 h-full flex flex-col z-40 w-64 border-r border-slate-200 bg-white">
+<div class="p-6">
+<div class="flex items-center gap-3 mb-10">
+<div class="w-8 h-8 bg-primary rounded flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-sm">diversity_3</span>
+</div>
+<div>
+<h1 class="text-xl font-black text-slate-900 tracking-tight">ImpactBridge</h1>
+<p class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Community Ops</p>
+</div>
+</div>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-slate-900 hover:bg-slate-50 transition-colors duration-200 rounded-md font-medium text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                    Dashboard
+                </a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-slate-900 hover:bg-slate-50 transition-colors duration-200 rounded-md font-medium text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+                    Map View
+                </a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-slate-900 hover:bg-slate-50 transition-colors duration-200 rounded-md font-medium text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="diversity_3">diversity_3</span>
+                    Volunteer Matching
+                </a>
+<a class="flex items-center gap-3 px-4 py-2 bg-slate-100 text-slate-950 rounded-md font-semibold text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+                    Tasks
+                </a>
+</nav>
+</div>
+<div class="mt-auto p-6">
+<button class="w-full py-3 px-4 bg-primary text-white rounded-xl font-bold text-sm flex items-center justify-center gap-2 active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined text-lg">add</span>
+                New Request
+            </button>
+</div>
+</aside>
+<!-- Main Content Shell -->
+<div class="ml-64 flex flex-col min-h-screen">
+<!-- TopAppBar (Shared Component) -->
+<header class="flex justify-between items-center px-8 h-16 w-full z-30 bg-white/80 backdrop-blur-md border-b border-slate-200 shadow-sm sticky top-0">
+<div class="flex items-center gap-8">
+<h2 class="font-headline-md text-slate-900">Task Management</h2>
+<nav class="hidden md:flex gap-6">
+<a class="text-slate-500 hover:text-slate-900 font-medium text-sm" href="#">Global Trends</a>
+<a class="text-slate-500 hover:text-slate-900 font-medium text-sm" href="#">Impact Reports</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+<input class="bg-slate-50 border border-slate-200 rounded-full py-1.5 pl-10 pr-4 text-sm w-64 focus:ring-1 focus:ring-primary outline-none" placeholder="Search tasks..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-slate-400 hover:text-slate-900 transition-all">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-slate-400 hover:text-slate-900 transition-all">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-slate-200 overflow-hidden border border-slate-300">
+<img alt="Administrator Profile" class="w-full h-full object-cover" data-alt="Close-up professional portrait of a man in a modern office environment with soft natural lighting and clean background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBujZiP9AeLoLNywDLnDb_bOwbJG78rq8cToP0vNOI14FzUanVQ4WS9xz6qz93s2kMNehnMEnKEhKAIkUBetxFMnIQzpF8SHL8f_5N3DQEkjg0MrneDZXmConfqzPnPwm2omt-WzCgAs_FjknKHiTwLrxsriPbHASIJqAGOlcU7EHx9tfTndu2T7t6wmxZCnuevTQiRUesT_n_uUYuX3LMZmyK_3jbR9mvNq_nVJ0V-Cgnd6rNakh1oXc1gioCVAUBlEdpXk6I39mU"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Canvas -->
+<main class="p-8 flex-1 overflow-x-auto">
+<!-- Dashboard Stats Summary -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter mb-margin">
+<div class="bg-white border border-slate-200 p-6 rounded-xl">
+<p class="text-label-sm font-label-sm text-on-primary-container mb-2">TOTAL TASKS</p>
+<div class="flex items-end gap-3">
+<span class="text-headline-md font-headline-md">128</span>
+<span class="text-on-tertiary-container font-medium text-sm mb-1">+12%</span>
+</div>
+</div>
+<div class="bg-white border border-slate-200 p-6 rounded-xl">
+<p class="text-label-sm font-label-sm text-on-primary-container mb-2">ACTIVE VOLUNTEERS</p>
+<div class="flex items-end gap-3">
+<span class="text-headline-md font-headline-md">42</span>
+<span class="text-slate-400 font-medium text-sm mb-1">Stable</span>
+</div>
+</div>
+<div class="bg-white border border-slate-200 p-6 rounded-xl border-l-4 border-l-secondary-container">
+<p class="text-label-sm font-label-sm text-on-primary-container mb-2">URGENT REQUESTS</p>
+<div class="flex items-end gap-3">
+<span class="text-headline-md font-headline-md text-secondary">08</span>
+<span class="text-error font-medium text-sm mb-1">High</span>
+</div>
+</div>
+<div class="bg-white border border-slate-200 p-6 rounded-xl">
+<p class="text-label-sm font-label-sm text-on-primary-container mb-2">COMPLETION RATE</p>
+<div class="flex items-end gap-3">
+<span class="text-headline-md font-headline-md">94%</span>
+<div class="w-16 h-1 bg-slate-100 mb-2 rounded-full overflow-hidden">
+<div class="bg-on-tertiary-container h-full w-[94%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Kanban Board -->
+<div class="flex gap-gutter h-[calc(100vh-320px)] min-w-[1000px]">
+<!-- To Do Column -->
+<div class="flex-1 flex flex-col min-w-[320px]">
+<div class="flex items-center justify-between mb-4 px-2">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-slate-300"></span>
+<h3 class="font-bold text-slate-700">To Do</h3>
+<span class="bg-slate-100 text-slate-500 text-[10px] px-2 py-0.5 rounded-full font-bold">4</span>
+</div>
+<button class="text-slate-400 hover:text-slate-900"><span class="material-symbols-outlined">more_horiz</span></button>
+</div>
+<div class="kanban-column flex-1 overflow-y-auto space-y-4 pr-2">
+<!-- Task Card 1 -->
+<div class="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:shadow-md transition-all cursor-grab active:cursor-grabbing">
+<div class="flex justify-between items-start mb-3">
+<span class="text-[10px] font-black uppercase tracking-wider text-secondary-container bg-secondary-fixed px-2 py-0.5 rounded">High Urgency</span>
+<span class="material-symbols-outlined text-slate-300 text-lg">drag_indicator</span>
+</div>
+<h4 class="font-bold text-slate-900 mb-2">Distribute Winter Supplies - District 4</h4>
+<p class="text-sm text-slate-500 mb-4 line-clamp-2">Organization of blankets and heaters for the shelter on 5th Avenue.</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<img alt="Sarah Chen" class="w-6 h-6 rounded-full object-cover" data-alt="Portrait of a young Asian woman with glasses smiling warmly in a bright community center setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfy5ipRpTI5o5xMPP_6nGIlzLd_iRHRPuD7TlSv0LmRKeMJTjwptoVN_P7L0DUpyYYj-xKoZQXA29ewn83LT7FLMXMVlRsxyC7iEEKZR7gF42GbFnzikQqGi9Mj9k__331dgzzKWBGYVI1rZwa9j1vK_KxFcN4REGw0aOlG9WOvOaVPA9sWHp5Zy5NVRrPA3Y5_O4p20JM1JJHNSKKIsiDyVcyfO5EvZrMl9R1nF3AZuOH6oPaPNuvOxa9eh1OaF6MzFFVv2LTzpM"/>
+<span class="text-xs font-medium text-slate-600">Sarah Chen</span>
+</div>
+<div class="flex items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span class="text-[10px] font-bold">2d left</span>
+</div>
+</div>
+</div>
+<!-- Task Card 2 -->
+<div class="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:shadow-md transition-all cursor-grab">
+<div class="flex justify-between items-start mb-3">
+<span class="text-[10px] font-black uppercase tracking-wider text-on-primary-container bg-slate-100 px-2 py-0.5 rounded">Medium</span>
+<span class="material-symbols-outlined text-slate-300 text-lg">drag_indicator</span>
+</div>
+<h4 class="font-bold text-slate-900 mb-2">Volunteer Training Workshop</h4>
+<div class="flex -space-x-2 mb-4">
+<img alt="User 1" class="w-6 h-6 rounded-full border-2 border-white object-cover" data-alt="Candid portrait of a woman with curly hair looking thoughtfully off-camera" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9FJCvJdQX9e0BxALliBBypoHRrsg5gLPH3QG7clqzQD7enTF6X-6rJn4LQp5swx0yqE3EIsvFMdXcB1YpTpVpC2mNf9yDOs85mSr9cv74QDZXG3o-bIaAmnXwpRFHfA1PV0TQWWuTzHq_4odFOkac6t7DaMs5RFauMdBbbHLUwTreUSk9XUO6jLwUUDqhcwNjM9R_99-iF0gm3YzuCso-Ekc18UTYxDjdcAheLQVnzCEkBdgMxXN9aN_Dk-WKpDc3chUaTbuHEkI"/>
+<img alt="User 2" class="w-6 h-6 rounded-full border-2 border-white object-cover" data-alt="Close-up of a smiling man with a beard and professional attire" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfEyeNtpFjHVH1ADaQAXEUp-MnFUtb1JACdgcDcExG1-zdRgRxSqDzYCRu1TjOAT0OB4hOWlWoHT2KmSRZvGr2O7mIWlKXJNgu4_L5g14JI5MCSzU99hiHENyqndcW00VT79mwYvlriGw1ypw4BiSJh_piY9I72eFmWRXhtthCPL2yVWv7krC1RoOBzuzkhZgA5pAnD2v_BdccZZ5V5whWCvlbKiOxVToJUlC1bbEmz19bEethF2sg7ELkieXnZBkaLNBVwyAAhG4"/>
+<div class="w-6 h-6 rounded-full border-2 border-white bg-slate-100 flex items-center justify-center text-[8px] font-bold text-slate-500">+3</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-xs font-medium text-slate-400">Education</span>
+<div class="flex items-center gap-1 text-slate-400">
+<span class="material-symbols-outlined text-sm">forum</span>
+<span class="text-[10px] font-bold">12</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- In Progress Column -->
+<div class="flex-1 flex flex-col min-w-[320px]">
+<div class="flex items-center justify-between mb-4 px-2">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+<h3 class="font-bold text-slate-700">In Progress</h3>
+<span class="bg-secondary-fixed text-secondary-container text-[10px] px-2 py-0.5 rounded-full font-bold">3</span>
+</div>
+<button class="text-slate-400 hover:text-slate-900"><span class="material-symbols-outlined">more_horiz</span></button>
+</div>
+<div class="kanban-column flex-1 overflow-y-auto space-y-4 pr-2">
+<!-- Task Card 3 (Featured) -->
+<div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all group">
+<div class="h-1 bg-secondary-container"></div>
+<div class="p-4">
+<div class="flex justify-between items-start mb-3">
+<span class="text-[10px] font-black uppercase tracking-wider text-secondary-container bg-secondary-fixed px-2 py-0.5 rounded">Critical</span>
+<span class="material-symbols-outlined text-slate-300 text-lg">drag_indicator</span>
+</div>
+<h4 class="font-bold text-slate-900 mb-2">Emergency Water Filtration Install</h4>
+<p class="text-sm text-slate-500 mb-4">Finalizing connection for the community hub well system.</p>
+<div class="mb-4">
+<div class="flex justify-between text-[10px] font-bold text-slate-400 mb-1">
+<span>PROGRESS</span>
+<span>75%</span>
+</div>
+<div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+<div class="bg-secondary-container h-full w-[75%]"></div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<img alt="Marcus Lee" class="w-6 h-6 rounded-full object-cover" data-alt="Portrait of a black man in a bright workspace, smiling confidently at the camera" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfiRbuAnLG5FoooimjrhI8dj_4OKk7cjAztCP89jinmU0-Wwqodtv5d9uWBNkY15JYHvcmCFWUtqhmZf1JjFMt-bZA415UX3GjOJo7ZASQZoBkMnL6lsANHRO8oGFDIu4G5FzOCpwH5RciVxX5IAVHiGiG17YsnM2Sbt2hsHLA81xR-_mFU6DNkGm62HL5jssWno1jHuI6K9rkvPmcibiagmO46WMqwaf9TXDWGX6d-Qvol2yo3k7Z0UQ0FXRRhHn6bvo5YQ3caVQ"/>
+<span class="text-xs font-medium text-slate-600">Marcus Lee</span>
+</div>
+<div class="flex -space-x-1">
+<div class="w-5 h-5 rounded-full bg-slate-200 border border-white"></div>
+<div class="w-5 h-5 rounded-full bg-slate-300 border border-white"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Task Card 4 -->
+<div class="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:shadow-md transition-all">
+<div class="flex justify-between items-start mb-3">
+<span class="text-[10px] font-black uppercase tracking-wider text-on-tertiary-container bg-tertiary-fixed px-2 py-0.5 rounded">Impact Focus</span>
+<span class="material-symbols-outlined text-slate-300 text-lg">drag_indicator</span>
+</div>
+<h4 class="font-bold text-slate-900 mb-2">Youth Mentorship Pairing</h4>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<img alt="Elena Rodriguez" class="w-6 h-6 rounded-full object-cover" data-alt="Portrait of a young Hispanic woman with a friendly expression in an urban outdoor setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmlzZnfwSNYFjnLhvJYrL2LXT_vjIfIMYcCLv_8nEFGwke4bM-nteEzmX_CHyAWZeXBni3phpNh9OknvbfQDvE4dv6-MXY2WV68t3RV1MQOnch4y3hO9IvhP1Ik90NdP_lGB0pXgiY6nFlcgrPmmAHO-9BTfcXg9KlWMjuALXStXlXFRYu5f9hnH9WuzAl5aIwi13t6MU5fIRv3DacHX0D2hsA8iDBEbV9BOKsa20l0HepOy3o2PdHYF710TkcXEpY8Z8p2PEmiKM"/>
+<span class="text-xs font-medium text-slate-600">Elena R.</span>
+</div>
+<span class="text-[10px] font-bold text-on-primary-container">Ongoing</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Completed Column -->
+<div class="flex-1 flex flex-col min-w-[320px]">
+<div class="flex items-center justify-between mb-4 px-2">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-container"></span>
+<h3 class="font-bold text-slate-700">Completed</h3>
+<span class="bg-tertiary-fixed text-on-tertiary-container text-[10px] px-2 py-0.5 rounded-full font-bold">12</span>
+</div>
+<button class="text-slate-400 hover:text-slate-900"><span class="material-symbols-outlined">more_horiz</span></button>
+</div>
+<div class="kanban-column flex-1 overflow-y-auto space-y-4 pr-2">
+<!-- Task Card 5 (Completed) -->
+<div class="bg-slate-50 border border-slate-200 rounded-xl p-4 opacity-75 grayscale hover:grayscale-0 transition-all">
+<div class="flex justify-between items-start mb-3">
+<span class="flex items-center gap-1 text-[10px] font-black uppercase tracking-wider text-on-tertiary-container">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                    Verified
+                                </span>
+</div>
+<h4 class="font-bold text-slate-500 mb-2 line-through">Community Garden Seed Planting</h4>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<img alt="David Kim" class="w-6 h-6 rounded-full object-cover" data-alt="Professional portrait of a middle-aged man with a kind smile, studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClIzqtlPUI13dAHA3wLcXVvHpwXUMRKaLe7wgoP2fX8rAatOSl_Yur2xswDoGNEz830vqe2YcHFqs0yGQfrDL5eRB6wqMcVY-Xw0A_dUFs7e7qNwO9DN66j8IGH4KWk_yHO9xIu0S6GGA25jP3z_pYxGEgF9KVXFNilp3IY2QqisxUl39Y5NFQiZ4bFatEh8FriCCetZ8wK-ElXsdxpqNd1gYr6bNsTQP70DJwn71IgUrM3H8brk0NretkLwzncUbUI4r_m7_bHsc"/>
+<span class="text-xs font-medium text-slate-400">David Kim</span>
+</div>
+<span class="text-[10px] font-bold text-on-tertiary-container">+20 Impact</span>
+</div>
+</div>
+<!-- Task Card 6 -->
+<div class="bg-slate-50 border border-slate-200 rounded-xl p-4 opacity-75 grayscale hover:grayscale-0 transition-all">
+<div class="flex justify-between items-start mb-3">
+<span class="flex items-center gap-1 text-[10px] font-black uppercase tracking-wider text-on-tertiary-container">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                    Success
+                                </span>
+</div>
+<h4 class="font-bold text-slate-500 mb-2 line-through">Mobile Medical Unit Route Sync</h4>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<img alt="Zoe Miller" class="w-6 h-6 rounded-full object-cover" data-alt="Close up portrait of a young woman with a genuine smile and bright eyes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNfwwGNRr04ixQEmykWso1wAYYtau8-QFrz05vzYtEEJE1eRZl3OASJBa6pzEt4KOt9_tKbiVvWQvQGwjCVlghI1ni_r30K4v-a3hcNW7BTOm8roa7_Y3C5UNae_2YmyKAaHEiVoNHnkDC16A1DexiVvRsnYmd4AWV-MaLDM6zvwy4yqeD-fngxfoi5ibNaGejHCth6rRJXz9Qx2tHZYxNjYHweZlChRKss5OpdnKRQrFk1b_SCPGI9uBTiM6nfqy4rkNvG4Mp5PY"/>
+<span class="text-xs font-medium text-slate-400">Zoe Miller</span>
+</div>
+<span class="text-[10px] font-bold text-on-tertiary-container">+15 Impact</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Heatmap Visualization Overlay (Minimalist) -->
+<div class="mt-margin">
+<div class="bg-white border border-slate-200 rounded-2xl p-8 flex flex-col md:flex-row items-center gap-8 shadow-sm">
+<div class="flex-1">
+<h4 class="font-bold text-slate-900 mb-2">Impact Intensity Map</h4>
+<p class="text-sm text-slate-500 mb-6">Real-time visualization of task density across community sectors. Higher saturation indicates higher activity hubs.</p>
+<div class="grid grid-cols-7 gap-2">
+<div class="h-8 bg-slate-50 rounded"></div>
+<div class="h-8 bg-slate-100 rounded"></div>
+<div class="h-8 bg-primary-container/20 rounded"></div>
+<div class="h-8 bg-primary-container/40 rounded"></div>
+<div class="h-8 bg-primary-container/60 rounded"></div>
+<div class="h-8 bg-secondary-container/80 rounded animate-pulse"></div>
+<div class="h-8 bg-primary-container/20 rounded"></div>
+<div class="h-8 bg-slate-100 rounded"></div>
+<div class="h-8 bg-primary-container/20 rounded"></div>
+<div class="h-8 bg-primary-container/60 rounded"></div>
+<div class="h-8 bg-primary-container/80 rounded"></div>
+<div class="h-8 bg-primary-container rounded"></div>
+<div class="h-8 bg-primary-container/40 rounded"></div>
+<div class="h-8 bg-slate-50 rounded"></div>
+</div>
+</div>
+<div class="w-full md:w-64 p-6 bg-slate-50 rounded-xl border border-slate-100">
+<div class="text-center">
+<p class="text-label-sm font-label-sm text-slate-400 mb-1">CURRENT PEAK</p>
+<p class="text-headline-md font-headline-md text-slate-900">District 4</p>
+<p class="text-[10px] font-bold text-secondary-container mt-2">REQUIRES ADDITIONAL SUPPORT</p>
+<button class="mt-4 w-full py-2 bg-white border border-slate-200 rounded-lg text-xs font-bold hover:bg-slate-100 transition-all">Reassign Staff</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Contextual FAB (Shared Component Strategy) -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-primary text-white rounded-full shadow-xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">add</span>
+</button>
+</body></html>
