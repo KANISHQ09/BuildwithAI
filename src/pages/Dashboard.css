@@ -106,11 +106,4 @@
 .monitor-stat-bar { display:flex; flex-direction:column; gap:6px; }
 .monitor-stat-bar-labels { display:flex; justify-content:space-between; font-size:13px; color:#64748b; font-weight:500; }
 .monitor-map { position:relative; height:240px; background:#f8fafc; border-radius:12px; border:1px solid #e2e8f0; overflow:hidden; }
-.monitor-map-bg { position:absolute; inset:0; background:linear-gradient(135deg,rgba(253,118,26,0.03),rgba(78,222,163,0.03)); }
-.monitor-ping { position:absolute; }
-.p1 { top:35%; left:55%; }
-.p2 { top:60%; left:30%; }
-.ping-dot { width:12px; height:12px; border-radius:50%; }
-.ping-ring { position:absolute; width:32px; height:32px; border-radius:50%; border:2px solid rgba(253,118,26,0.3); top:-10px; left:-10px; animation:pulse-glow 2s infinite; }
-.ping-ring.green { border-color:rgba(78,222,163,0.3); }
-.monitor-coords { position:absolute; bottom:12px; right:16px; font-size:10px; font-weight:600; color:#94a3b8; letter-spacing:0.08em; font-family:monospace; }
+.monitor-coords { position:absolute; bottom:12px; right:16px; font-size:10px; font-weight:600; color:#94a3b8; letter-spacing:0.08em; font-family:monospace; z-index: 10; }

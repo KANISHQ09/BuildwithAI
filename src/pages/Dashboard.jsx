@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { communityNeeds, urgencyColors } from '../data/communityNeeds.js'
 import { volunteers } from '../data/volunteers.js'
 import { activityFeed } from '../data/activityFeed.js'
@@ -44,6 +44,33 @@ export default function Dashboard() {
     const opacities = [0.2,0.4,0.1,0.9,0.6,0.3,0.8,0.5,1,0.4,0.7,0.2,0.1,0.5,0.7,0.9,0.2,0.6,0.1,0.4,0.3,0.5,0.8,0.1]
     return opacities[i]
   })
+
+  const mapRef = useRef(null)
+  const mapInstance = useRef(null)
+
+  useEffect(() => {
+    if (!mapRef.current || mapInstance.current) return
+    const L = window.L
+    if (!L) return
+
+    const map = L.map(mapRef.current, {
+      center: [23.25, 77.41],
+      zoom: 7,
+      zoomControl: false,
+      attributionControl: false
+    })
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      maxZoom: 19
+    }).addTo(map)
+
+    // Add some activity circles
+    L.circle([23.25, 77.41], { radius: 20000, color: 'var(--secondary-container)', fillOpacity: 0.2 }).addTo(map)
+    L.circle([23.8, 78.1], { radius: 15000, color: 'var(--on-tertiary-container)', fillOpacity: 0.2 }).addTo(map)
+
+    mapInstance.current = map
+    return () => { map.remove(); mapInstance.current = null; }
+  }, [])
 
   return (
     <div className="page-content">
@@ -107,7 +134,7 @@ export default function Dashboard() {
               </div>
               <div>
                 <span className="stat-label">Active Deployments</span>
-                <span className="stat-value"><AnimatedCounter value={communityNeeds.filter(n=>n.status==='In Progress').length} /></span>
+                <div className="stat-value"><AnimatedCounter value={communityNeeds.filter(n=>n.status==='In Progress').length} /></div>
               </div>
             </div>
             <button className="btn-primary">
@@ -283,7 +310,7 @@ export default function Dashboard() {
                 <span>Sync Frequency</span>
                 <span className="monitor-stat-value">250ms</span>
               </div>
-              <div className="monitor-stat-bar">
+              <div className="monitor-stat-bar monitor-stat">
                 <div className="monitor-stat-bar-labels">
                   <span>Signal Stability</span><span>98%</span>
                 </div>
@@ -294,9 +321,7 @@ export default function Dashboard() {
             </div>
           </div>
           <div className="monitor-map">
-            <div className="monitor-map-bg"></div>
-            <div className="monitor-ping p1"><div className="ping-ring"></div><div className="ping-dot" style={{background:'var(--secondary-container)'}}></div></div>
-            <div className="monitor-ping p2"><div className="ping-ring green"></div><div className="ping-dot" style={{background:'var(--on-tertiary-container)'}}></div></div>
+            <div ref={mapRef} style={{ width: '100%', height: '100%', zIndex: 1 }}></div>
             <div className="monitor-coords">LAT: 23.25° N, LONG: 77.41° E</div>
           </div>
         </div>
